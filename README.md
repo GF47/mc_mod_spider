@@ -1,0 +1,2 @@
+# mc_mod_spider
+minecraft的mod自动同步到curseforge的最新版本
