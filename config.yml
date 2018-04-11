@@ -1,0 +1,7 @@
+version: 1.12.2
+project_url_root: https://minecraft.curseforge.com/projects/
+old_list: old_list.txt
+new_list: new_list.txt
+max_thread_job: 5
+mod_dir: F:/Game/MC_1.12.2/.minecraft/versions/1.12.2/mods
+mod_list: mod_list.txt
