@@ -42,6 +42,9 @@ def _download_file(url, file_name):
     """
     print(u'下载：' + url)
     try:
+        opener = urllib.request.build_opener()
+        opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0')]
+        urllib.request.install_opener(opener)
         urllib.request.urlretrieve(url, file_name)
     except urllib.error.URLError as e:
         print(u'下载错误' + e.reason)

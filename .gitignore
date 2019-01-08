@@ -99,3 +99,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# current project
+mod_list.txt
+new_list.txt
+old_list.txt

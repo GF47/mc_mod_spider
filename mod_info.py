@@ -23,8 +23,9 @@ VERSION_DICT = {
 # list[mod_name, project_id, file_id, file_name]
 LIST_MPF = []
 
+user_agent_Mozilla = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0'
 
-def get_html(url, user_agent='GF47', retries=2):
+def get_html(url, user_agent=user_agent_Mozilla, retries=2):
     """获取mod主页面"""
     headers = {'User-agent': user_agent}
     request = urllib.request.Request(url, headers=headers)
