@@ -32,7 +32,8 @@ def get_html(url, user_agent=user_agent_Mozilla, retries=2):
     try:
         html = urllib.request.urlopen(request).read()
     except urllib.error.URLError as e:
-        print('error: ' + e.reason)
+        print('urllib.error: ' + e.reason)
+        print('error url:' + url)
         html = None
         if retries > 0:
             if hasattr(e, 'code') and 500 <= e.code < 600:
