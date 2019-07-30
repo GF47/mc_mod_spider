@@ -101,6 +101,7 @@ ENV/
 .mypy_cache/
 
 # current project
+tmp/
+file_list.txt
 mod_list.txt
-new_list.txt
-old_list.txt
+project_list.txt

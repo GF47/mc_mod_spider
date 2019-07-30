@@ -1,8 +1,9 @@
 version: 1.12.2
-project_url_root: https://minecraft.curseforge.com/projects/
-old_list: old_list.txt
-new_list: new_list.txt
-max_thread_job: 5
-mod_dir: F:\Game\MultiMC\instances\BWEA\.minecraft\mods
+project_url_root: https://www.curseforge.com/minecraft/mc-mods
+forge_storage_url_root: https://media.forgecdn.net/files
+origin_mod_dir: F:\Game\MultiMC\instances\BWEA\.minecraft\mods
 mod_list: mod_list.txt
-mod_info: mod_info.csv
+project_list: project_list.txt
+file_list: file_list.txt
+user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
+max_thread_job: 5
