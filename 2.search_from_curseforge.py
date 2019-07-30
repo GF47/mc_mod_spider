@@ -79,12 +79,15 @@ def _search_project_by_name(name):
 
     while True:
         input_str = input("请输入匹配的序号，[ 回车 ]默认为[ 1 ]，[ 空格 ]则跳过放弃，[ rs ]手动输入关键字并重新搜索：")
-        if input_str == '':
-            input_value = 0
-            break
-        elif input_str == ' ':
+        if input_str == ' ':
             input_value = -1
             break
+        elif input_str == '':
+            if len(search_result) > 0:
+                input_value = 0
+                break
+            else:
+                input_value = -1
         elif input_str.strip() == 'rs':
             fixed_name = input("请重新输入[ {0} ]的名称：\n".format(name))
             search_result = _project_searcher(fixed_name)
