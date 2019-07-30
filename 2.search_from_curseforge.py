@@ -49,12 +49,12 @@ def get_html(url, user_agent=user_agent_default, retries=2):
 def _project_searcher(name):
     """负责在curseforge上按mod名称查找对应项目页"""
     html = str(get_html('{0}/search?search={1}'.format(project_url_root, name.replace(' ', '+'))))
-    project_names = re.finditer(r'<a class="my-auto" href="/minecraft/mc-mods/(.*?)">', html)
+    project_names = re.finditer(r'<a class="my-auto" href="/minecraft/mc-mods/(.*?)">\\r\\n\s*<h3 class=".*?">(.*?)</h3>', html)
     print("--------------------------------[{0}]的匹配项：--------------------------------".format(name))
     result = []
     for i,v in enumerate(project_names):
         result.append(v.group(1))
-        print('{0}{1}. [ {2} ]\n'.format('\t' * i, i + 1, v.group(1)))
+        print('{0}{1}. [ {2}----{3} ]\n'.format('\t' * i, i + 1, v.group(1), v.group(2)))
     print("----------------------------------------------------------------")
     return result
 
@@ -85,12 +85,13 @@ def _search_project_by_name(name):
         elif input_str == ' ':
             input_value = -1
             break
-        elif input_str == 'rs':
+        elif input_str.strip() == 'rs':
             fixed_name = input("请重新输入[ {0} ]的名称：\n".format(name))
             search_result = _project_searcher(fixed_name)
         else:
-            input_value = int(input_str) - 1 if isinstance(input_str, int) else -1
-            break
+            input_value = int(input_str) - 1 if input_str.isdigit() else -1
+            if 0 <= input_value < len(search_result):
+                break
 
     result = search_result[input_value] if 0 <= input_value < len(search_result) else ''
     print("[ {0} ]的匹配项为[ {1} ]\n".format(name, result))
